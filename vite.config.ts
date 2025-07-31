@@ -9,6 +9,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // 设置基础路径为仓库名称
+  base: '/mcgill-lab-navigation/',
   server: {
     host: "0.0.0.0",
     allowedHosts: true
