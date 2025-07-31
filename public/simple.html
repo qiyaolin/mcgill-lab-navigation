@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayer Lab Management System - Access Cell Storage and Lab Inventory Systems</title>
+    <meta name="description" content="Hayer Lab Management System - Access Cell Storage and Lab Inventory Systems">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+        
+        .header {
+            background: #b91c1c;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .header-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        
+        .header-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .date {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .welcome {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .welcome h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+        
+        .welcome p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .systems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .system-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .system-card:hover {
+            border-color: #fca5a5;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .system-icon {
+            width: 80px;
+            height: 80px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
+        
+        .system-card:hover .system-icon {
+            background: #fecaca;
+        }
+        
+        .system-card h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        .system-card p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .feature-icon {
+            font-size: 16px;
+        }
+        
+        .system-button {
+            background: #b91c1c;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .system-button:hover {
+            background: #991b1b;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                height: 60px;
+                padding: 0 15px;
+            }
+            
+            .logo {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .header-text h1 {
+                font-size: 18px;
+            }
+            
+            .header-text p {
+                font-size: 12px;
+            }
+            
+            .main {
+                padding: 40px 15px;
+            }
+            
+            .welcome h2 {
+                font-size: 28px;
+            }
+            
+            .welcome p {
+                font-size: 16px;
+            }
+            
+            .systems {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .system-card {
+                padding: 30px 20px;
+            }
+            
+            .features {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">🏫</div>
+                <div class="header-text">
+                    <h1>Hayer Lab</h1>
+                    <p>Laboratory Management System</p>
+                </div>
+            </div>
+            <div class="date" id="currentDate"></div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="welcome">
+            <h2>Laboratory Management System</h2>
+            <p>Welcome to the Hayer Laboratory Management System. Please select the subsystem you need to access.</p>
+        </div>
+
+        <div class="systems">
+            <div class="system-card">
+                <div class="system-icon">🧬</div>
+                <h3>Cell Storage System</h3>
+                <p>Manage and track cell sample storage information in the laboratory</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">👥</span>
+                        <span>Cell Inventory Management</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📍</span>
+                        <span>Storage Location Tracking</span>
+                    </div>
+                </div>
+                <a href="https://ambient-decoder-467517-h8.nn.r.appspot.com/cell-storage/index" 
+                   target="_blank" class="system-button">
+                    Enter System
+                    <span>↗</span>
+                </a>
+            </div>
+
+            <div class="system-card">
+                <div class="system-icon">📦</div>
+                <h3>Lab Inventory System</h3>
+                <p>Comprehensive laboratory equipment and supplies inventory management</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">📋</span>
+                        <span>Order Management</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📊</span>
+                        <span>Inventory Tracking</span>
+                    </div>
+                </div>
+                <a href="https://lab-inventory-467021.web.app/inventory" 
+                   target="_blank" class="system-button">
+                    Enter System
+                    <span>↗</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Hayer Lab. All rights reserved.</p>
+            <p>For technical support, please contact: qiyaolin3776@gmail.com</p>
+        </div>
+    </main>
+
+    <script>
+        // Display current date
+        document.getElementById('currentDate').textContent = 
+            new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+    </script>
+</body>
+</html>
