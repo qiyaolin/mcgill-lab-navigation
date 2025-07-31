@@ -11,7 +11,7 @@ function App() {
           <div className="flex items-center justify-between h-14 sm:h-16">
             <div className="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-1">
               <img 
-                src="/images/mcgill-logo.svg" 
+                src={`${import.meta.env.BASE_URL}images/mcgill-logo.svg`}
                 alt="McGill University Logo" 
                 className="h-8 w-8 sm:h-10 sm:w-10 object-contain flex-shrink-0"
                 onError={(e) => {
